@@ -1,9 +1,9 @@
-
+import traceback
 
 try:
-    score = int(input('점수를 입력하세요 >>> '))
+    score = int(input('접수를 입력하세요 >>> '))
     if score < 0 or score > 100:
-        raise Exception('점수는 0 ~ 100 사이입니다.')
+        raise Exception('점수는 0~100 사이 입니다.')
 except Exception as e:
     print(e)
     traceback.print_exc()
