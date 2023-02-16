@@ -45,6 +45,8 @@ linear.add_data(3)
 linear.add_data(5)
 linear.add_data(4)
 linear.add_data(2)
+linear.add_data(6)
+
 
 linear.print_list()
 
