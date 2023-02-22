@@ -45,31 +45,30 @@ def insert(data):
     #
     # current.next = new_node
 
+
 # 7 3 9 1 6
 # 99
 def insertNode(findData, insertData): # f: 9 / i: 99
     global node1
 
-   if node1.data == findData:   # node1.data : 7 == 9 해당없음
-    node = Node(insertData, node1)
-    node1 = node
-    return
+    if node1.data == findData:  # node1.data : 7 == 9 해당없음
+        node = Node(insertData, node1)
+        node1 = node
+        return
 
-   current = node1            # c.data : 7 / c.next : 3
-   while current.next != None:
-       pre = current
+    current = node1             # c.data : 7 / c.next : 3
+    while current.next != None:
+        pre = current
+                                # p.data : 7|3  / p.next : 3|9
+        current = current.next
+                                # c.data : 3|9 / c.next : 9|1
+        if current.data == findData:  # c.data : 3|9 == f.data : 9|9
+            node = Node(insertData, current)    # idata : 99, 9(주소값)
+            pre.next = node     # p.data : 3 / p.next : 9(주소값) --> 99(주소값으로 변경)
+            return
 
-                              # p.data : 7|3 / p.next : 3|9
-       current = current.next
-                              # c.data : 3|9 / c.next : 9|1
-       if current.data == findData:  # c.data : 3|9 == f.data : 9|9
-           node = Node(insertData, current)     # idata : 99, 9(주소값)
-           pre.next = node     # p.data : 3 / p.next : 9(주소값) --> 99(주소값으로 변경)
-           return
-
-node = Node(insertData)
-current.next = node
-
+    node = Node(insertData)
+    current.next = node
 
 def delete(del_data):
     global node1
@@ -89,6 +88,8 @@ def delete(del_data):
         pre_node = next_node
         next_node = next_node.next
 
+
+
 def print_list(): # 연결 리스트의 데이터를 출력한다.
     global node1
     node = node1
@@ -97,6 +98,9 @@ def print_list(): # 연결 리스트의 데이터를 출력한다.
         node = node.next
     print()
 
+
+
+
 # 실행코드
 init(7)
 insert(3)
@@ -104,7 +108,7 @@ insert(9)
 insert(1)
 insert(6)
 
-    # insertNode(9, 99)
+insertNode(9, 99)
 
 print_list()
 ''' 결과
@@ -116,6 +120,3 @@ print_list()
 6 
 순서대로 출력 
 '''
-
-
-
